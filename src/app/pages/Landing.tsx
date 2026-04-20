@@ -219,6 +219,18 @@ export function Landing({ onNavigateToDashboard }: { onNavigateToDashboard?: () 
                 Testimonials
               </a>
               <Link
+                href="/auth/signin"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                User Login
+              </Link>
+              <Link
+                href="/login"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Admin Login
+              </Link>
+              <Link
                 href="/dashboard"
                 className="px-6 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50"
               >
