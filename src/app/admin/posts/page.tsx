@@ -29,7 +29,7 @@ export default async function AdminPostsPage() {
             </tr>
           </thead>
           <tbody>
-            {posts.map((post) => (
+            {posts.map((post: any) => (
               <tr key={post.id} className="border-t border-white/10">
                 <td className="px-4 py-3">{post.title}</td>
                 <td className="px-4 py-3 text-gray-300">{post.slug}</td>
