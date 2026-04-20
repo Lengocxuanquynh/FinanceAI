@@ -222,13 +222,7 @@ export function Landing({ onNavigateToDashboard }: { onNavigateToDashboard?: () 
                 href="/auth/signin"
                 className="text-gray-300 hover:text-white transition-colors"
               >
-                User Login
-              </Link>
-              <Link
-                href="/login"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                Admin Login
+                Sign In
               </Link>
               <Link
                 href="/dashboard"
