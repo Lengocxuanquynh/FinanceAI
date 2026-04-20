@@ -50,15 +50,22 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     async signIn({ user, account }) {
       if (account?.provider === "google" && user.email) {
-        await prisma.user.upsert({
-          where: { email: user.email.toLowerCase() },
-          update: { name: user.name ?? undefined },
-          create: {
-            email: user.email.toLowerCase(),
-            name: user.name ?? undefined,
-            role: "USER",
-          },
-        });
+        try {
+          await prisma.user.upsert({
+            where: { email: user.email.toLowerCase() },
+            update: { name: user.name ?? undefined },
+            create: {
+              email: user.email.toLowerCase(),
+              name: user.name ?? undefined,
+              role: "USER",
+            },
+          });
+        } catch (error) {
+          console.error("Error in signIn callback (Google):", error);
+          // Return true to allow sign-in even if DB sync fails,
+          // so we can confirm if the error is ONLY DB-related.
+          return true; 
+        }
       }
       return true;
     },
